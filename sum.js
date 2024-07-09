@@ -5,6 +5,4 @@ function sumRange(n) {
         return n + sumRange(n-1)
 }
 
-console.log(sumRange(3))
-console.log(sumRange(4))
-console.log(sumRange(5))
+console.log(sumRange(2))
