@@ -11,52 +11,30 @@
 //     }
 // }
 
-
 // const lengthArr = (arr, count = 0) => {
 //     if (arr.length == 0) {
 //         return count;
 //     } else {
 //         return lengthArr(arr.slice(1), count + 1);
 //     }
-    
+
 // }
 
 const totalIntegers = (arr, c = 0) => {
-    arr.forEach(element => {
-        if (typeof element === 'number')
-            c++;
-        else
-            c = totalIntegers(element, c);
-    });
+  arr.forEach((element) => {
+    if (typeof element === "number") c++;
+    else if (typeof element == "object") c = totalIntegers(element, c);
+  });
 
-    return c;
-}
+  return c;
+};
 
+let arr = [1, [2, 1, [1, 2, 2, [0]]], 2];
+let nArr = [1, [1, 1, [1, 11, 3, [2]]], [1, 3], 1];
+let nnArr = [1, [2, 1], 2];
 
-
-let arr = [1, [2, 1, [1, 2 , 2 ,[0]]], 2]
-let nArr = [
-    1,
-    [
-        1, 1, 
-        [
-            1, 11, 3, 
-            [
-                2
-            ]
-        ]
-    ], 
-    [
-        1, 3
-    ],
-    1 
-];
-let nnArr = [
-    1, 
-    [
-        2, 1
-    ], 2
-];
-console.log(totalIntegers(arr))
-console.log(totalIntegers(nArr))
-console.log(totalIntegers(nnArr))
+let testCase = [[[5], 3], 0, 2, ["foo"], [], [4, [5, 6]]];
+console.log(totalIntegers(arr));
+console.log(totalIntegers(nArr));
+console.log(totalIntegers(nnArr));
+console.log(totalIntegers(testCase));
